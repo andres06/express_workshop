@@ -9,7 +9,7 @@ pokemon.post("/", async (req, res, next) => {
         let query = "INSERT INTO pokemon(pok_name, pok_height, pok_weight, pok_base_experience)";
         query += ` VALUES ('${pok_name}', ${pok_height}, ${pok_weight}, ${pok_base_experience})`;
         const rows = await db.query(query);
-        
+
         if(rows.affectedRows == 1){
             return res.status(201).json({ code: 201, message: "Pokemon insertado correctamente "});
         }
